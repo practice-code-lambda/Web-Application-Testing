@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Dashboard = (props) => {
+    const {addStrike, addBalls} = props
     return ( 
     <div>
-        <button>strike</button>
-        <button>ball</button>
+        <button onClick={addStrike}>strike</button>
+        <button onClick={addBalls}>ball</button>
         <button>hit</button>
     </div> );
 }
