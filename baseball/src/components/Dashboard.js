@@ -6,7 +6,7 @@ const Dashboard = (props) => {
     <div>
         <button onClick={addStrike}>strike</button>
         <button onClick={addBalls}>ball</button>
-        <button>hit</button>
+        {/* <button>hit</button> */}
     </div> );
 }
  

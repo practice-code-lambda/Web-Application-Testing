@@ -15,3 +15,10 @@ it('should render stat tracker text', ()=>{
   const app = render(<App />)
   app.getByText(/Stat tracker/i)
 })
+
+describe('strike button test',()=>{
+  it('should add a strike', ()=>{
+    const app = render(<App />)
+    app
+  })
+})
