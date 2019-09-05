@@ -12,9 +12,10 @@ import App from '../App'
 
 //to test if a click will incremen
 describe('<Dashboard/>', ()=>{
-    it('should render strikes',()=>{
 
-        const { getByText } = render(<App/>)
+    const { getByText } = render(<App/>)
+
+    it('should render strikes',()=>{
 
         const button = getByText('strike')
 
@@ -24,6 +25,18 @@ describe('<Dashboard/>', ()=>{
 
         
     })
+
+    it('should render balls', ()=>{
+
+        const { getByText } = render(<App/>)
+
+        const button = getByText('ball')
+
+        fireEvent.click(button)
+
+        getByText(/balls:1/)
+    })
+
 })
 //fake data to help test component
 const fakeState = {
