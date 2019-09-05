@@ -13,9 +13,11 @@ import App from '../App'
 //to test if a click will incremen
 describe('<Dashboard/>', ()=>{
 
-    const { getByText } = render(<App/>)
+   
 
     it('should render strikes',()=>{
+
+        const { getByText } = render(<App/>)
 
         const button = getByText('strike')
 
@@ -35,6 +37,23 @@ describe('<Dashboard/>', ()=>{
         fireEvent.click(button)
 
         getByText(/balls:1/)
+    })
+
+    it('should clear balls and strikes on hit', ()=>{
+
+
+        const { getByText } = render(<App/>)
+
+        const Ballbutton = getByText('ball')
+        const Strikebutton = getByText('strike')
+        const Hitbutton = getByText('hit')
+
+        fireEvent.click(Ballbutton)
+        fireEvent.click(Strikebutton)
+        fireEvent.click(Hitbutton)
+
+        getByText(/balls:0/)
+        getByText(/strikes:0/)
     })
 
 })

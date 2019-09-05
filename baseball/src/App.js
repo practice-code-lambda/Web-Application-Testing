@@ -14,15 +14,19 @@ function App() {
 
   function addStrike() {
   
-    (state.strikes === 3) ? 
+    (state.strikes === 2) ? 
     setState({...state, strikes: 0, balls: 0}) :
     setState({...state, strikes: state.strikes + 1})
   }
   function addBalls() {
   
-    (state.balls === 4) ? 
+    (state.balls === 3) ? 
     setState({...state, strikes: 0, balls: 0}) :
     setState({...state, balls: state.balls + 1})
+  }
+
+  function addHit() {
+    setState({...state, strikes: 0, balls: 0})
   }
 
 
@@ -31,7 +35,11 @@ function App() {
     <div className="App">
       <h1>Stat tracker</h1>
       <Display state = {state}/>
-      <Dashboard addStrike = {addStrike} addBalls = {addBalls}/>
+      <Dashboard 
+      addStrike = {addStrike}
+      addBalls = {addBalls}
+      addHit = {addHit}
+      />
     </div>
   );
 }
