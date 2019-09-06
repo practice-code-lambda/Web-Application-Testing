@@ -4,7 +4,7 @@ import './App.css';
 import Display from './components/Display'
 import Dashboard from './components/Dashboard'
 
-
+//function is exported outside of App and then used in app to export to tests
 export const addStrike = strikes => {
   return strikes < 2 ? ++strikes : 0;
 };
