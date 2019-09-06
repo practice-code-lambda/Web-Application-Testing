@@ -4,6 +4,12 @@ import './App.css';
 import Display from './components/Display'
 import Dashboard from './components/Dashboard'
 
+
+export const addStrike = strikes => {
+  return strikes < 2 ? ++strikes : 0;
+};
+
+
 function App() {
 
   const [state, setState] = useState({
@@ -11,13 +17,13 @@ function App() {
     strikes: 0,
     hits: 0
   })
-
-  function addStrike() {
   
-    (state.strikes === 2) ? 
-    setState({...state, strikes: 0, balls: 0}) :
-    setState({...state, strikes: state.strikes + 1})
-  }
+  function addStrikes(){
+ 
+    const strikes = addStrike(state.strikes);
+    setState({...state, strikes:strikes})
+  };
+
   function addBalls() {
   
     (state.balls === 3) ? 
@@ -36,7 +42,7 @@ function App() {
       <h1>Stat tracker</h1>
       <Display state = {state}/>
       <Dashboard 
-      addStrike = {addStrike}
+      addStrike = {addStrikes}
       addBalls = {addBalls}
       addHit = {addHit}
       />

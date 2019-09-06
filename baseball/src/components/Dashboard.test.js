@@ -2,6 +2,8 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 // not needed because testing library has render method
 // import App from './App';
+// keep in mind that App is where everything is rendering so that 
+// is where it can be found in the VIRTUAL DOOOOM 
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/react/cleanup-after-each';
 
@@ -41,7 +43,6 @@ describe('<Dashboard/>', ()=>{
 
     it('should clear balls and strikes on hit', ()=>{
 
-
         const { getByText } = render(<App/>)
 
         const Ballbutton = getByText('ball')
@@ -55,7 +56,6 @@ describe('<Dashboard/>', ()=>{
         getByText(/balls:0/)
         getByText(/strikes:0/)
     })
-
 })
 //fake data to help test component
 const fakeState = {
@@ -67,4 +67,17 @@ test('has strike button', () => {
     const { getByText } = render(<Display state={fakeState} />);
     //find button
     getByText(/strikes/i);
+  });   
+test('strikes will reset after 2', () => {
+    const { getByText } = render(<Display state={fakeState} />);
+ 
+    const Strikebutton = getByText(/strikes/i);
+
+    fireEvent.click(Strikebutton)
+    fireEvent.click(Strikebutton)
+    fireEvent.click(Strikebutton)
+
+    getByText(/strikes:0/i)
+
+
   });   
